@@ -33,7 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,11 +52,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\OrderContext.cs" />
+    <Compile Include="Migrations\201611112240503_AddResources.cs" />
+    <Compile Include="Migrations\201611112240503_AddResources.Designer.cs">
+      <DependentUpon>201611112240503_AddResources.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611112250354_AddResourceClass.cs" />
+    <Compile Include="Migrations\201611112250354_AddResourceClass.Designer.cs">
+      <DependentUpon>201611112250354_AddResourceClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611112252003_AddResourceClass2.cs" />
+    <Compile Include="Migrations\201611112252003_AddResourceClass2.Designer.cs">
+      <DependentUpon>201611112252003_AddResourceClass2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611112258393_AddExtId.cs" />
+    <Compile Include="Migrations\201611112258393_AddExtId.Designer.cs">
+      <DependentUpon>201611112258393_AddExtId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611112326281_AddWarehouse.cs" />
+    <Compile Include="Migrations\201611112326281_AddWarehouse.Designer.cs">
+      <DependentUpon>201611112326281_AddWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611112327182_AddWarehouse1.cs" />
+    <Compile Include="Migrations\201611112327182_AddWarehouse1.Designer.cs">
+      <DependentUpon>201611112327182_AddWarehouse1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611112340091_AddInventory.cs" />
+    <Compile Include="Migrations\201611112340091_AddInventory.Designer.cs">
+      <DependentUpon>201611112340091_AddInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\Measurement.cs" />
+    <Compile Include="Models\Resource.cs" />
+    <Compile Include="Models\ResourceClass.cs" />
+    <Compile Include="Models\ResourceType.cs" />
+    <Compile Include="Models\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611112240503_AddResources.resx">
+      <DependentUpon>201611112240503_AddResources.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611112250354_AddResourceClass.resx">
+      <DependentUpon>201611112250354_AddResourceClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611112252003_AddResourceClass2.resx">
+      <DependentUpon>201611112252003_AddResourceClass2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611112258393_AddExtId.resx">
+      <DependentUpon>201611112258393_AddExtId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611112326281_AddWarehouse.resx">
+      <DependentUpon>201611112326281_AddWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611112327182_AddWarehouse1.resx">
+      <DependentUpon>201611112327182_AddWarehouse1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611112340091_AddInventory.resx">
+      <DependentUpon>201611112340091_AddInventory.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
