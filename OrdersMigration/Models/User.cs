@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace OrdersMigration.Models
 {
-    public partial class ResourceClass
+    public partial class User
     {
         public long Id { get; set; }
         [MaxLength(50)]
-        public string ext_id { get; set; }
-        public string Code { get; set; }
+        public string Ext_Id { get; set; }
         public string Name { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
         public bool Active { get; set; }
-        public virtual ICollection<Resource> Resources { get; set; }
-
+        public DateTime Created { get; set; }
+        public long UserCreated { get; set; }
+        public DateTime Updated { get; set; }
+        public long UserUpdated { get; set; }
     }
 }

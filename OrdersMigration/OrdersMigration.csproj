@@ -81,12 +81,36 @@
     <Compile Include="Migrations\201611112340091_AddInventory.Designer.cs">
       <DependentUpon>201611112340091_AddInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611112353522_AddResourceMeasure.cs" />
+    <Compile Include="Migrations\201611112353522_AddResourceMeasure.Designer.cs">
+      <DependentUpon>201611112353522_AddResourceMeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611120125056_AddModels.cs" />
+    <Compile Include="Migrations\201611120125056_AddModels.Designer.cs">
+      <DependentUpon>201611120125056_AddModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AddressType.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerAddress.cs" />
+    <Compile Include="Models\CustomerType.cs" />
+    <Compile Include="Models\DocumentType.cs" />
     <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\InvoiceDetail.cs" />
     <Compile Include="Models\Measurement.cs" />
+    <Compile Include="Models\NextNumber.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Quotation.cs" />
+    <Compile Include="Models\QuotationDetail.cs" />
     <Compile Include="Models\Resource.cs" />
     <Compile Include="Models\ResourceClass.cs" />
     <Compile Include="Models\ResourceType.cs" />
+    <Compile Include="Models\Tax.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionType.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611112340091_AddInventory.resx">
       <DependentUpon>201611112340091_AddInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611112353522_AddResourceMeasure.resx">
+      <DependentUpon>201611112353522_AddResourceMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611120125056_AddModels.resx">
+      <DependentUpon>201611120125056_AddModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

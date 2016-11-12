@@ -16,7 +16,14 @@ namespace OrdersMigration.Models
         public string Name { get; set; }
         public bool Active { get; set; }
 
-        public virtual List<Inventory> Inventories { get; set; }
+        public virtual ICollection<Inventory> Inventories { get; set; }
+        public virtual ICollection<Resource> Resources { get; set; }
+        public virtual ICollection<QuotationDetail> QuotationDetails { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
+
+
+
 
 
     }
