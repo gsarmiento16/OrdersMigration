@@ -11,8 +11,10 @@ namespace OrdersMigration.Models
     {
         public long Id { get; set; }
         [MaxLength(50)]
-        public string ext_id { get; set; }
-        public string name { get; set; }
+        public string Ext_id { get; set; }
+        [MaxLength(20)]
+        public string Code { get; set; }
+        public string Name { get; set; }
         public bool Active { get; set; }
         public virtual ICollection<Resource> Resources { get; set; }
     }

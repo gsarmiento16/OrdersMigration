@@ -11,6 +11,8 @@ namespace OrdersMigration.Database
     public class OrderContext : DbContext
     {
         public DbSet<AddressType> AddressTypes { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<CompanyMaster> CompanieMasters { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerAddress> CustomerAddresses { get; set; }
         public DbSet<CustomerType> CustomerTypes { get; set; }
@@ -31,6 +33,8 @@ namespace OrdersMigration.Database
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<VendorAddress> VendorAddresses { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
 
 

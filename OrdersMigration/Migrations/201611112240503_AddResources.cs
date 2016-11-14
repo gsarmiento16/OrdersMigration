@@ -25,7 +25,7 @@ namespace OrdersMigration.Migrations
                     {
                         Id = c.Long(nullable: false, identity: true),
                         name = c.String(),
-                        Active = c.Boolean(nullable: false),
+                        Active = c.Boolean(nullable: false, defaultValue: true),
                     })
                 .PrimaryKey(t => t.Id);
             

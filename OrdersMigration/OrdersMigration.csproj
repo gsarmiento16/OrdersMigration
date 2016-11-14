@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C64F3B84-C4DA-4CEB-933C-5481ACD69843}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OrdersMigration</RootNamespace>
     <AssemblyName>OrdersMigration</AssemblyName>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -53,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\OrderContext.cs" />
+    <Compile Include="Helpers\ResourceTypeHelper.cs" />
     <Compile Include="Migrations\201611112240503_AddResources.cs" />
     <Compile Include="Migrations\201611112240503_AddResources.Designer.cs">
       <DependentUpon>201611112240503_AddResources.cs</DependentUpon>
@@ -93,8 +97,50 @@
     <Compile Include="Migrations\201611120155530_AddVendor.Designer.cs">
       <DependentUpon>201611120155530_AddVendor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611140323111_CapitalCase.cs" />
+    <Compile Include="Migrations\201611140323111_CapitalCase.Designer.cs">
+      <DependentUpon>201611140323111_CapitalCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611140522087_AddResourceTypeCode.cs" />
+    <Compile Include="Migrations\201611140522087_AddResourceTypeCode.Designer.cs">
+      <DependentUpon>201611140522087_AddResourceTypeCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142148148_AddMisc.cs" />
+    <Compile Include="Migrations\201611142148148_AddMisc.Designer.cs">
+      <DependentUpon>201611142148148_AddMisc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142159067_AddCompany.cs" />
+    <Compile Include="Migrations\201611142159067_AddCompany.Designer.cs">
+      <DependentUpon>201611142159067_AddCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142200299_AddCompany1.cs" />
+    <Compile Include="Migrations\201611142200299_AddCompany1.Designer.cs">
+      <DependentUpon>201611142200299_AddCompany1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142204561_AddVendorAddress.cs" />
+    <Compile Include="Migrations\201611142204561_AddVendorAddress.Designer.cs">
+      <DependentUpon>201611142204561_AddVendorAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142206310_AddVendorAddress1.cs" />
+    <Compile Include="Migrations\201611142206310_AddVendorAddress1.Designer.cs">
+      <DependentUpon>201611142206310_AddVendorAddress1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142208253_AddVendorAddressType.cs" />
+    <Compile Include="Migrations\201611142208253_AddVendorAddressType.Designer.cs">
+      <DependentUpon>201611142208253_AddVendorAddressType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142214170_AddCompanyMaster.cs" />
+    <Compile Include="Migrations\201611142214170_AddCompanyMaster.Designer.cs">
+      <DependentUpon>201611142214170_AddCompanyMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611142216060_AddCompanyMaster1.cs" />
+    <Compile Include="Migrations\201611142216060_AddCompanyMaster1.Designer.cs">
+      <DependentUpon>201611142216060_AddCompanyMaster1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddressType.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\CompanyMaster.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerAddress.cs" />
     <Compile Include="Models\CustomerType.cs" />
@@ -117,9 +163,13 @@
     <Compile Include="Models\TransactionType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Models\VendorAddress.cs" />
     <Compile Include="Models\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Result.cs" />
+    <Compile Include="Util\ResultType.cs" />
+    <Compile Include="Util\StringExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -156,7 +206,38 @@
     <EmbeddedResource Include="Migrations\201611120155530_AddVendor.resx">
       <DependentUpon>201611120155530_AddVendor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611140323111_CapitalCase.resx">
+      <DependentUpon>201611140323111_CapitalCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611140522087_AddResourceTypeCode.resx">
+      <DependentUpon>201611140522087_AddResourceTypeCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142148148_AddMisc.resx">
+      <DependentUpon>201611142148148_AddMisc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142159067_AddCompany.resx">
+      <DependentUpon>201611142159067_AddCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142200299_AddCompany1.resx">
+      <DependentUpon>201611142200299_AddCompany1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142204561_AddVendorAddress.resx">
+      <DependentUpon>201611142204561_AddVendorAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142206310_AddVendorAddress1.resx">
+      <DependentUpon>201611142206310_AddVendorAddress1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142208253_AddVendorAddressType.resx">
+      <DependentUpon>201611142208253_AddVendorAddressType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142214170_AddCompanyMaster.resx">
+      <DependentUpon>201611142214170_AddCompanyMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611142216060_AddCompanyMaster1.resx">
+      <DependentUpon>201611142216060_AddCompanyMaster1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

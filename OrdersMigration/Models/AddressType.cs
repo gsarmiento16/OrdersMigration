@@ -13,5 +13,7 @@ namespace OrdersMigration.Models
         public string Name { get; set; }
 
         public virtual ICollection<CustomerAddress> CustomerAddresses { get; set; }
+        public virtual ICollection<VendorAddress> VendorAddresses { get; set; }
+
     }
 }
