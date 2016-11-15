@@ -8,7 +8,7 @@ namespace OrdersMigration.Util
 {
   public static class ResultType
     {
-        public static int SUCCES = 1;
+        public static int SUCCESS = 1;
         public static int FAILED = 0;
     }
 }

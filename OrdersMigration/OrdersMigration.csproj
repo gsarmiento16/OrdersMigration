@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\OrderContext.cs" />
+    <Compile Include="Helpers\CompanyMasterHelper.cs" />
     <Compile Include="Helpers\ResourceTypeHelper.cs" />
     <Compile Include="Migrations\201611112240503_AddResources.cs" />
     <Compile Include="Migrations\201611112240503_AddResources.Designer.cs">

@@ -102,7 +102,7 @@ namespace OrdersMigration.Helpers
                     {
                         db.Entry(resourceType).State = System.Data.Entity.EntityState.Deleted;
                         db.SaveChanges();
-                        res.type = ResultType.SUCCES;
+                        res.type = ResultType.SUCCESS;
                     }
                     else
                     {

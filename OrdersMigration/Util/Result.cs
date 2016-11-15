@@ -14,4 +14,13 @@ namespace OrdersMigration.Util
         public long Entity { get; set; }
     }
 
+    public class Result
+    {
+        public int type { get; set; }
+        public string message { get; set; }
+        public long Entity { get; set; }
+    }
+
+
+
 }
