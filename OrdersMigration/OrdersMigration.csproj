@@ -142,6 +142,10 @@
     <Compile Include="Migrations\201611150023342_AddUserRole.Designer.cs">
       <DependentUpon>201611150023342_AddUserRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611150024412_AddUserRole1.cs" />
+    <Compile Include="Migrations\201611150024412_AddUserRole1.Designer.cs">
+      <DependentUpon>201611150024412_AddUserRole1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddressType.cs" />
     <Compile Include="Models\Company.cs" />
@@ -244,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611150023342_AddUserRole.resx">
       <DependentUpon>201611150023342_AddUserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611150024412_AddUserRole1.resx">
+      <DependentUpon>201611150024412_AddUserRole1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

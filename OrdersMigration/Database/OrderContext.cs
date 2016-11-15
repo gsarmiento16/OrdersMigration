@@ -33,6 +33,7 @@ namespace OrdersMigration.Database
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<VendorAddress> VendorAddresses { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
