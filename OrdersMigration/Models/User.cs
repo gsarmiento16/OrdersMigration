@@ -17,6 +17,7 @@ namespace OrdersMigration.Models
         public string Email { get; set; }
         public string Sesion { get; set; }
         public string Password { get; set; }
+        public bool ChangePassword { get; set; }
         public bool Active { get; set; }
         public DateTime Created { get; set; }
         public long UserCreated { get; set; }

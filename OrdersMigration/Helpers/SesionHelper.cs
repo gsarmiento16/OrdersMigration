@@ -10,11 +10,28 @@ namespace OrdersMigration.Helpers
 {
     public class SesionHelper
     {
-    /*    public Sesion Login(User obj)
+        public int Login(User obj)
         {
+            try
+            {
+                using (var db = new OrderContext())
+                {
+                    var user = db.Users.Where(u => u.Password == StringExtension.Encrypting(obj.Password) && u.UserName == obj.UserName).FirstOrDefault();
 
-            return S
-        }*/
+                    if (user != null)
+                    {
+                        Sesion.UserName = user.UserName;
+                        Sesion.UserId = user.Id;
+                        Sesion.SesionString = user.Sesion;
+                    }
+                    else { }
+                }
+            }catch(Exception e){
+
+
+            }
+            return 0;
+        }
 
     }
 }
