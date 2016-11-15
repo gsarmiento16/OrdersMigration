@@ -10,27 +10,40 @@ namespace OrdersMigration.Helpers
 {
     public class SesionHelper
     {
-        public int Login(User obj)
+        public Result Login(User obj)
         {
             try
             {
+                User user;
                 using (var db = new OrderContext())
                 {
-                    var user = db.Users.Where(u => u.Password == StringExtension.Encrypting(obj.Password) && u.UserName == obj.UserName).FirstOrDefault();
+                    user = db.Users.Where(u => u.Password == StringExtension.Encrypting(obj.Password) && u.UserName == obj.UserName).FirstOrDefault();
+                }
 
-                    if (user != null)
+                if (user != null)
+                {
+                    string sesionString = StringExtension.RandomString(20);
+                    user.Sesion = sesionString;
+                    using (var db = new OrderContext())
                     {
+                        db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
                         Sesion.UserName = user.UserName;
                         Sesion.UserId = user.Id;
-                        Sesion.SesionString = user.Sesion;
-                    }
-                    else { }
-                }
-            }catch(Exception e){
+                        Sesion.SesionString = sesionString;
+                        return new Result { type = ResultType.SUCCESS };
 
+                }
+                else
+                {
+                    return new Result { type = ResultType.USER_FAIL };
+                }
 
             }
-            return 0;
+            catch(Exception e){
+                return new Result { type = ResultType.FAILED, message = e.Message };
+            }
         }
 
     }

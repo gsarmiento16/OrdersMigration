@@ -10,5 +10,7 @@ namespace OrdersMigration.Util
     {
         public static int SUCCESS = 1;
         public static int FAILED = 0;
+        public static int USER_FAIL = 3;
+
     }
 }

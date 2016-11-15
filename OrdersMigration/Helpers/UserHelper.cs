@@ -19,7 +19,7 @@ namespace OrdersMigration.Helpers
             {
                 using (var db = new OrderContext())
                 {
-                    db.Users.Add(
+                  var user =  db.Users.Add(
                         new User{
                             Ext_Id = StringExtension.RandomString(20),
                             Name = obj.Name,
@@ -33,6 +33,7 @@ namespace OrdersMigration.Helpers
                             Updated = DateTime.Now,
                             UserUpdated = 1
                         });
+                    db.SaveChanges();
                 }
                 return new Result { type = ResultType.SUCCESS };
 
