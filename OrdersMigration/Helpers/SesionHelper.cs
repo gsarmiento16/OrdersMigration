@@ -17,7 +17,8 @@ namespace OrdersMigration.Helpers
                 User user;
                 using (var db = new OrderContext())
                 {
-                    user = db.Users.Where(u => u.Password == StringExtension.Encrypting(obj.Password) && u.UserName == obj.UserName).FirstOrDefault();
+                    string pass = StringExtension.Encrypting(obj.Password);
+                    user = db.Users.Where(u => u.Password == pass && u.UserName == obj.UserName).FirstOrDefault();
                 }
 
                 if (user != null)

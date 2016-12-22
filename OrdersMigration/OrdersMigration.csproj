@@ -196,6 +196,7 @@
     <Compile Include="Util\ResultType.cs" />
     <Compile Include="Util\Sesion.cs" />
     <Compile Include="Util\StringExtension.cs" />
+    <Compile Include="ViewModels\CompanyMasterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
