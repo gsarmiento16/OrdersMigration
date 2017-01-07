@@ -24,7 +24,7 @@ namespace OrdersMigration.Helpers
                             Ext_Id = StringExtension.RandomString(20),
                             Name = obj.Name,
                             Code = obj.Code,
-                            UserCreated = 15548,
+                            UserCreated = Sesion.UserId,
                             Created = DateTime.Now,
                             Updated = DateTime.Now,
                             UserUpdated = Sesion.UserId 
@@ -33,6 +33,34 @@ namespace OrdersMigration.Helpers
                     return new Result { type = ResultType.SUCCESS };
 
                 }
+            }
+            catch (Exception e)
+            {
+                return new Result { type = ResultType.FAILED, message = e.Message };
+            }
+        }
+
+        public Result Update(string Ext_Id)
+        {
+            Result res = new Result();
+            CompanyMaster companyMaster = new CompanyMaster();
+            try
+            {
+                using (var db = new OrderContext())
+                {
+                    companyMaster = db.CompanieMasters.Where(c => c.Ext_Id.Equals(Ext_Id)).FirstOrDefault();
+                }
+
+                if (companyMaster != null)
+                {
+                    using (var db = new OrderContext())
+                    {
+                        db.Entry(companyMaster).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+
+                return new Result { type = ResultType.SUCCESS };
             }
             catch (Exception e)
             {
@@ -57,6 +85,51 @@ namespace OrdersMigration.Helpers
                               UserUpdated = uu.UserName
                           };
              return list.ToList();
+            }
+        }
+
+        public CompanyMaster Get(string Ext_Id)
+        {
+            using (var db = new OrderContext())
+            {
+                var item = (from cm in db.CompanieMasters
+                            select cm).FirstOrDefault();
+                return item;
+            }
+        }
+
+        public Result Delete(List<string> Ids)
+        {
+            try
+            {
+                using (var db = new OrderContext())
+                {
+                    List<CompanyMaster> list = new List<CompanyMaster>();
+
+                    foreach (var item in Ids)
+                    {
+                        var cm = (from m in db.CompanieMasters
+                                  where m.Ext_Id.Equals(item)
+                                  select m).FirstOrDefault();
+                        if (cm != null)
+                        {
+                            list.Add(cm);
+                        }
+
+                    }
+
+                    if (list.Count()>0)
+                    {
+                        db.CompanieMasters.RemoveRange(list);
+                        db.SaveChanges();
+                    }
+                }
+
+                return new Result { type = ResultType.SUCCESS };
+            }
+            catch (Exception e)
+            {
+                return new Result { type = ResultType.FAILED, message = e.Message };
             }
         }
 
